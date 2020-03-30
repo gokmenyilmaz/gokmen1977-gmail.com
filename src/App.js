@@ -38,12 +38,16 @@ export default class App  extends React.Component{
             </nav>
 
 
-            <Switch>
-              <Route exact path="/home" component={Home}/>
-              <Route exact path="/dashboard" component={DashBoard}/>
-              <Route exact path="/personeller" component={Personeller}/>
-            </Switch>
+            <article style={{border:'solid', borderColor:'red', margin:'10px'}}>
+              <Switch>
+                <Route exact path="/" component={Home}/>
+                <Route exact path="/home" component={Home}/>
+                <Route exact path="/dashboard" component={DashBoard}/>
+                <Route exact path="/personeller" component={Personeller}/>
+              </Switch>
 
+            </article>
+           
 
           </BrowserRouter>
 

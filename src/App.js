@@ -6,6 +6,7 @@ import Home from './Home'
 import Personeller from './Personeller'
 import Adres from './Adres'
 import Login from './Login'
+import RcIf, {RcElse} from 'rc-if';
 
 import logo from './logo.svg';
 import './App.css';
@@ -53,12 +54,22 @@ export default class App  extends React.Component{
           <div>Router içi</div>
           <BrowserRouter>
 
-            <nav style={{border:'solid', borderColor:'red', margin:'10px'}}>
-              <div>Dashboard</div>
-              <DashBoard isLogIn={this.state.isLogIn}/>
-            </nav>
+      
 
+           <RcIf if={this.state.isLogIn==true}>
+              <nav style={{border:'solid', borderColor:'red', margin:'10px'}}>
+                <div>Dashboard</div>
+                <DashBoard isLogIn={this.state.isLogIn}/>
+              </nav>
+            </RcIf>
 
+            <RcIf if={this.state.isLogIn!=true}>
+              <nav style={{border:'solid', borderColor:'red', margin:'10px'}}>
+                <div>Login</div>
+                <Login loginHandle={this.loginHandle} loginOutHandle={this.loginOutHandle}/>
+              </nav>
+            </RcIf>
+               
             <article style={{border:'solid', borderColor:'red', margin:'10px'}}>
               <Switch>
                 <Route exact path="/" component={Home}/>

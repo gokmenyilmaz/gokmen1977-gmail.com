@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch,Route, Link,NavLink } from "react-router-dom";
 import DashBoard from './DashBoard'
 import Home from './Home'
+import Personeller from './Personeller'
 
 import logo from './logo.svg';
 import './App.css';
@@ -25,20 +26,29 @@ export default class App  extends React.Component{
           App Başlık
         </div>
 
-        <div style={{border:'solid', borderColor:'red', margin:'10px'}}>
-          <nav>Dashboard</nav>
-          <DashBoard/>
-        </div>
-
+       
      
         <article style={{border:'solid', borderColor:'green', margin:'10px'}}>
           <div>Router içi</div>
           <BrowserRouter>
+
+            <nav style={{border:'solid', borderColor:'red', margin:'10px'}}>
+              <div>Dashboard</div>
+              <DashBoard/>
+            </nav>
+
+
             <Switch>
               <Route exact path="/home" component={Home}/>
               <Route exact path="/dashboard" component={DashBoard}/>
+              <Route exact path="/personeller" component={Personeller}/>
             </Switch>
+
+
           </BrowserRouter>
+
+
+
         </article>
       
       
